@@ -1,16 +1,11 @@
 <template lang="pug">
-#app.py-3
-  DataListPage
+  #app.py-3
+    router-view
 </template>
 
 <script>
-import DataListPage from "./pages/DataListPage.vue";
-
 export default {
   name: "App",
-  components: {
-    DataListPage,
-  },
 };
 </script>
 
