@@ -1,28 +1,35 @@
-<template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+<template lang="pug">
+#app.py-3
+  DataListPage
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import DataListPage from "./pages/DataListPage.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
-  }
-}
+    DataListPage,
+  },
+};
 </script>
 
-<style>
-#app {
+<style lang="scss">
+@import "./scss/main.scss";
+#app{
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+}
+.hover:hover{
+  cursor: pointer;
+}
+h1, h2, h3, h4, h5, h6{
+  font-size: 1rem;
+  font-weight: inherit;
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+  line-height: inherit;
 }
 </style>
