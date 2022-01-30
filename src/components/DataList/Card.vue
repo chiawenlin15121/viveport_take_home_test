@@ -1,5 +1,5 @@
 <template lang="pug">
-  .border.hover-animation.p-3.hover.d-flex.flex-column(@click="onClick('test')") 
+  .border.hover-animation.p-3.hover.d-flex.flex-column(@click="onClick(args)") 
     .d-flex.align-items-center
       h2.font-weight-bold.w-100.flex-grow-1.mr-1.text-truncate.title {{title}}
       h3 {{remark}}
@@ -26,6 +26,12 @@ export default {
     onClick:{
       type: Function,
       default: () => {}
+    },
+    args:{
+      type: Object,
+      default: () => {
+        return {}
+      }
     }
   },
 };
