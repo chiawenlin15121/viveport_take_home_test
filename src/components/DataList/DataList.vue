@@ -4,6 +4,7 @@ section.container
     .col-6.col-sm-4.col-md-3.my-1.rounded(v-for="item in items")
       Card(
         :onClick="onItemSelected" 
+        :args="item"
         :title="item.title"
         :remark="item.remark"
         :description="item.description")
