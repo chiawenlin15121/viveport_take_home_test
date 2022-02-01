@@ -15,8 +15,11 @@ export default new VueRouter({
       })
     },
     {
-      path: '/parks/:park_id',
+      path: '/parks/:parkId',
       component: ParkDetailPage,
+      props: route => ({
+        parkId: parseInt(route.params.parkId) || 0
+      })
     },
     {
       path: '*',

@@ -5,7 +5,9 @@ export default class ParkDetail {
     pm_overview,
     pm_construction,
     pm_location,
-    pm_transit
+    pm_transit,
+    pm_lon,
+    pm_lat,
   }) {
     this.id = id
     this.title = pm_name
@@ -13,5 +15,7 @@ export default class ParkDetail {
     this.description = pm_overview
     this.location = pm_location
     this.transit = pm_transit
+    this.longitude = pm_lon
+    this.latitude = pm_lat
   }
 }

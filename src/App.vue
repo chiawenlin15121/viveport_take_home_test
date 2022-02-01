@@ -1,11 +1,21 @@
 <template lang="pug">
-  #app.py-3
+  #app
     router-view
 </template>
 
 <script>
+import { mapActions } from "vuex";
 export default {
   name: "App",
+  beforeMount() {
+    if (!this.$store.state.parks.list.length) {
+      console.log("set parks");
+      this.loadParks();
+    }
+  },
+  methods: {
+    ...mapActions('parks',['loadParks'])
+  }
 };
 </script>
 

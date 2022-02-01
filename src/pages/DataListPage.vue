@@ -1,5 +1,5 @@
 <template lang="pug">
-.container-fluid
+.container-fluid.py-3
   .row.text-center
     h1.h1.col 台北市公園資料
   DataList.my-2(:items="pagedList", :onItemSelected="onParkSelected")
@@ -13,10 +13,7 @@
 
 <script>
 import DataList from "../components/DataList/DataList.vue";
-import dataSource from "../assets/park_data_source.json";
 import vPagination from "vue-plain-pagination";
-import ParkDetail from "../models/ParkDetail";
-import { mapActions } from "vuex";
 export default {
   props: {
     currentPage: {
@@ -42,18 +39,7 @@ export default {
       },
     };
   },
-  beforeMount() {
-    if (!this.$store.state.parks.list.length) {
-      console.log("set parks");
-      this.setParks(
-        dataSource.map(
-          (parkJSON, index) => new ParkDetail({ ...parkJSON, id: index })
-        )
-      );
-    }
-  },
   methods: {
-    ...mapActions("parks", ["setParks"]),
     onParkSelected({ id }) {
       this.$router.push({ path: `parks/${id}` });
     },

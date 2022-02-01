@@ -1,24 +1,30 @@
+import dataSource from "../../assets/park_data_source.json"
+import ParkDetail from "../../models/ParkDetail"
+
 const state = () => ({
   list: [],
 })
 
 // getters
 const getters = {
-  
+  detail: (state) => (parkId) => state.list[parkId]
 }
 
 // actions
 const actions = {
-  setParks: ({
+  loadParks: ({
     commit
-  }, parks) => {
+  }) => {
+    const parks = dataSource.map(
+      (parkJSON, index) => new ParkDetail({ ...parkJSON, id: index })
+    )
     commit('setParks', parks)
   },
 }
 
 // mutations
 const mutations = {
-  setParks(state, parks) {
+  setParks(state, parks){
     state.list = parks
   },
 }
