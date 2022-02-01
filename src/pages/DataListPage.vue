@@ -2,6 +2,8 @@
 .container-fluid.py-3
   .row.text-center
     h1.h1.col 台北市公園資料
+  .row
+    SearchBar.col(:onSearch="onSearch" :defaultSearchTerm="searchTerm")
   DataList.my-2(:items="pagedList", :onItemSelected="onParkSelected")
   .row.justify-content-center
     vPagination(
@@ -12,8 +14,10 @@
 </template>
 
 <script>
-import DataList from "../components/DataList/DataList.vue";
-import vPagination from "vue-plain-pagination";
+import DataList from '../components/DataList/DataList.vue'
+import vPagination from 'vue-plain-pagination'
+import SearchBar from '../components/SearchBar.vue'
+
 export default {
   props: {
     currentPage: {
@@ -25,7 +29,7 @@ export default {
       default: "",
     },
   },
-  components: { DataList, vPagination },
+  components: { DataList, vPagination, SearchBar },
   data() {
     return {
       page: 1,
@@ -43,6 +47,11 @@ export default {
     onParkSelected({ id }) {
       this.$router.push({ path: `parks/${id}` });
     },
+    onSearch(searchTerm){
+      this.$router
+          .push({ path: '/parks', query: { p: 1, s: searchTerm }})
+          .catch(()=>{})
+    }
   },
   computed: {
     filterList() {

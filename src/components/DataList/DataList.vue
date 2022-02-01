@@ -1,5 +1,5 @@
 <template lang="pug">
-section.container
+section
   .row
     .col-6.col-sm-4.col-md-3.my-1.rounded(v-for="item in items")
       Card(
