@@ -8,7 +8,7 @@ section
       v-if="notFound"
     )
       p Park Not Found
-    .content.flex.flex-col(v-else)
+    .content.d-flex.flex-column(v-else)
       p {{ description }}
       #map
       .border-bottom
