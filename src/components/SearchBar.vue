@@ -1,6 +1,6 @@
 <template lang="pug">
 .input-group
-  //- .input-group-prepend 
+  //- .input-group-prepend
   //-   span.input-group-text 搜尋
   input.form-control(v-model="searchTerm")
   .input-group-append
@@ -11,39 +11,36 @@
 <script>
 export default {
   props: {
-    defaultSearchTerm:{
+    defaultSearchTerm: {
       type: String,
-      default: '',
+      default: ''
     },
     onSearch: {
       type: Function,
-      default: () => {},
-    },
+      default: () => {}
+    }
   },
-  data(){
+  data() {
     return {
       searchTerm: ''
     }
   },
-  methods:{
-    clearSearch(){
+  methods: {
+    clearSearch() {
       this.searchTerm = ''
       this.search()
     },
-    search(){
+    search() {
       this.onSearch(this.searchTerm)
     }
   },
-  watch:{
-    defaultSearchTerm:{
-      handler(newValue){
+  watch: {
+    defaultSearchTerm: {
+      handler(newValue) {
         this.searchTerm = newValue
       },
       immediate: true
     }
   }
-};
+}
 </script>
-
-<style>
-</style>

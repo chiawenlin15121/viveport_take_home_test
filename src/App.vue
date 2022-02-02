@@ -4,19 +4,19 @@
 </template>
 
 <script>
-import { mapActions } from "vuex";
+import { mapActions } from 'vuex'
+
 export default {
-  name: "App",
+  name: 'App',
   beforeMount() {
     if (!this.$store.state.parks.list.length) {
-      console.log("set parks");
-      this.loadParks();
+      this.loadParks()
     }
   },
   methods: {
-    ...mapActions('parks',['loadParks'])
+    ...mapActions('parks', ['loadParks'])
   }
-};
+}
 </script>
 
 <style lang="scss">

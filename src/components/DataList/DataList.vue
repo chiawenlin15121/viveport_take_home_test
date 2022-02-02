@@ -2,8 +2,8 @@
 section
   .row
     .col-6.col-sm-4.col-md-3.my-1.rounded(v-for="item in items")
-      Card(
-        :onClick="onItemSelected" 
+      ListCard(
+        :onClick="onItemSelected"
         :args="item"
         :title="item.title"
         :remark="item.remark"
@@ -11,20 +11,21 @@ section
 </template>
 
 <script>
-import Card from "./Card.vue";
+import ListCard from './ListCard.vue'
+
 export default {
-  props:{
-    items:{
+  props: {
+    items: {
       type: Array,
-      default: ()=>[]
+      default: () => []
     },
-    onItemSelected:{
+    onItemSelected: {
       type: Function,
-      default: ()=>{}
-    },
+      default: () => {}
+    }
   },
-  components: { Card },
-};
+  components: { ListCard }
+}
 </script>
 
 <style lang="sass" scoped>

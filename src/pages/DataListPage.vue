@@ -14,20 +14,20 @@
 </template>
 
 <script>
-import DataList from '../components/DataList/DataList.vue'
 import vPagination from 'vue-plain-pagination'
+import DataList from '../components/DataList/DataList.vue'
 import SearchBar from '../components/SearchBar.vue'
 
 export default {
   props: {
     currentPage: {
       type: Number,
-      default: 1,
+      default: 1
     },
     searchTerm: {
       type: String,
-      default: "",
-    },
+      default: ''
+    }
   },
   components: { DataList, vPagination, SearchBar },
   data() {
@@ -35,22 +35,22 @@ export default {
       page: 1,
       per: 12,
       bootstrapPaginationClasses: {
-        ul: "pagination",
-        li: "page-item",
-        liActive: "active",
-        liDisable: "disabled",
-        button: "page-link",
-      },
-    };
+        ul: 'pagination',
+        li: 'page-item',
+        liActive: 'active',
+        liDisable: 'disabled',
+        button: 'page-link'
+      }
+    }
   },
   methods: {
     onParkSelected({ id }) {
-      this.$router.push({ path: `parks/${id}` });
+      this.$router.push({ path: `parks/${id}` })
     },
-    onSearch(searchTerm){
+    onSearch(searchTerm) {
       this.$router
-          .push({ path: '/parks', query: { p: 1, s: searchTerm }})
-          .catch(()=>{})
+        .push({ path: '/parks', query: { p: 1, s: searchTerm } })
+        .catch(() => {})
     }
   },
   computed: {
@@ -60,31 +60,31 @@ export default {
           (park) => park.title.includes(this.searchTerm)
         )
     },
-    pagedList(){
+    pagedList() {
       const start = (this.currentPage - 1) * this.per
       return this.filterList
-        .slice(start, start + this.per);
+        .slice(start, start + this.per)
     },
     pageCount() {
-      return Math.ceil(this.filterList.length / this.per);
-    },
+      return Math.ceil(this.filterList.length / this.per)
+    }
   },
   watch: {
     currentPage: {
       handler(newValue) {
-        this.page = newValue;
+        this.page = newValue
       },
-      immediate: true,
+      immediate: true
     },
     page: {
-      handler(newValue){
+      handler(newValue) {
         this.$router
-          .push({ path: '/parks', query: { p: newValue, s: this.searchTerm }})
-          .catch(()=>{})
+          .push({ path: '/parks', query: { p: newValue, s: this.searchTerm } })
+          .catch(() => {})
       }
     }
-  },
-};
+  }
+}
 </script>
 
 <style>

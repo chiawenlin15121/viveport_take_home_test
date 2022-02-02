@@ -17,59 +17,59 @@ section
 </template>
 
 <script>
-import { mapGetters } from "vuex"
+import { mapGetters } from 'vuex'
 import Map from '../helpers/Map'
 
 export default {
   props: {
     parkId: {
-      type: Number,
-    },
+      type: Number
+    }
   },
   data() {
     return {
       notFound: false,
-      title: "",
-      description: "",
-      location: "",
-      longitude: "",
-      latitude: "",
-      transit: "",
-      map: undefined,
-    };
+      title: '',
+      description: '',
+      location: '',
+      longitude: '',
+      latitude: '',
+      transit: '',
+      map: undefined
+    }
   },
   beforeMount() {
-    this.notFound = !this.parkId;
+    this.notFound = !this.parkId
     if (this.parkId) {
-      const parkDetail = this.getParkDetail(this.parkId);
+      const parkDetail = this.getParkDetail(this.parkId)
       if (!parkDetail) {
-        this.notFound = true;
-        return;
+        this.notFound = true
+        return
       }
-      this.title = parkDetail.title;
-      this.location = parkDetail.location;
-      this.longitude = parkDetail.longitude;
-      this.latitude = parkDetail.latitude;
-      this.description = parkDetail.description;
-      this.transit = parkDetail.transit;
+      this.title = parkDetail.title
+      this.location = parkDetail.location
+      this.longitude = parkDetail.longitude
+      this.latitude = parkDetail.latitude
+      this.description = parkDetail.description
+      this.transit = parkDetail.transit
     }
   },
   mounted() {
-    const {latitude, longitude} = this
-    this.map = new Map('map',latitude, longitude)
-    this.map.addMarker({latitude, longitude})
+    const { latitude, longitude } = this
+    this.map = new Map('map', latitude, longitude)
+    this.map.addMarker({ latitude, longitude })
   },
   methods: {
     goBack() {
-      this.$router.go(-1);
-    },
+      this.$router.go(-1)
+    }
   },
   computed: {
-    ...mapGetters("parks", {
-      getParkDetail: "detail",
-    }),
-  },
-};
+    ...mapGetters('parks', {
+      getParkDetail: 'detail'
+    })
+  }
+}
 </script>
 
 <style lang="scss">

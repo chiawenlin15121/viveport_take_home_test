@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 export default class ParkDetail {
   constructor({
     id,
@@ -7,7 +8,7 @@ export default class ParkDetail {
     pm_location,
     pm_transit,
     pm_lon,
-    pm_lat,
+    pm_lat
   }) {
     this.id = id
     this.title = pm_name

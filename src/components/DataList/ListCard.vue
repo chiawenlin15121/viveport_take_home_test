@@ -1,5 +1,5 @@
 <template lang="pug">
-  .border.hover-animation.p-3.hover.d-flex.flex-column(@click="onClick(args)") 
+  .border.hover-animation.p-3.hover.d-flex.flex-column(@click="onClick(args)")
     .d-flex.align-items-center
       h2.font-weight-bold.w-100.flex-grow-1.mr-1.text-truncate.title {{title}}
       h3 {{remark}}
@@ -13,28 +13,26 @@ export default {
   props: {
     title: {
       type: String,
-      default: "",
+      default: ''
     },
     remark: {
       type: String,
-      default: "",
+      default: ''
     },
     description: {
       type: String,
-      default: "",
+      default: ''
     },
-    onClick:{
+    onClick: {
       type: Function,
       default: () => {}
     },
-    args:{
+    args: {
       type: Object,
-      default: () => {
-        return {}
-      }
+      default: () => ({})
     }
-  },
-};
+  }
+}
 </script>
 
 <style lang="scss">
@@ -51,18 +49,18 @@ $description_height: 6em;
     background-color: rgba(255, 220, 207, 0.632);
   }
 }
-/* styles for '...' */ 
+/* styles for '...' */
 .block-with-text {
   /* hide text if it more than N lines  */
   overflow: hidden;
   /* for set '...' in absolute position */
-  position: relative; 
+  position: relative;
   /* use this value to count block height */
   line-height: 1.2em;
   /* max-height = line-height (1.2) * lines max number (3) */
   max-height: $description_height;
   /* fix problem when last visible word doesn't adjoin right side  */
-  text-align: justify;  
+  text-align: justify;
   /* place for '...' */
   // margin-right: -1em;
   padding-right: 1em;

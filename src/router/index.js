@@ -7,23 +7,23 @@ Vue.use(VueRouter)
 export default new VueRouter({
   mode: 'history',
   routes: [{
-      path: '/parks',
-      component: DataListPage,
-      props: route => ({
-        currentPage: route.query.p && parseInt(route.query.p)  || 1,
-        searchTerm: route.query.s || '',
-      })
-    },
-    {
-      path: '/parks/:parkId',
-      component: ParkDetailPage,
-      props: route => ({
-        parkId: parseInt(route.params.parkId) || 0
-      })
-    },
-    {
-      path: '*',
-      component: DataListPage,
-    },
+    path: '/parks',
+    component: DataListPage,
+    props: (route) => ({
+      currentPage: (route.query.p && parseInt(route.query.p, 10)) || 1,
+      searchTerm: route.query.s || ''
+    })
+  },
+  {
+    path: '/parks/:parkId',
+    component: ParkDetailPage,
+    props: (route) => ({
+      parkId: parseInt(route.params.parkId, 10) || 0
+    })
+  },
+  {
+    path: '*',
+    component: DataListPage
+  }
   ]
 })

@@ -1,8 +1,8 @@
-import dataSource from "../../assets/park_data_source.json"
-import ParkDetail from "../../models/ParkDetail"
+import dataSource from '../../assets/park_data_source.json'
+import ParkDetail from '../../models/ParkDetail'
 
-const state = () => ({
-  list: [],
+const defaultState = () => ({
+  list: []
 })
 
 // getters
@@ -19,19 +19,19 @@ const actions = {
       (parkJSON, index) => new ParkDetail({ ...parkJSON, id: index })
     )
     commit('setParks', parks)
-  },
+  }
 }
 
 // mutations
 const mutations = {
-  setParks(state, parks){
+  setParks(state, parks) {
     state.list = parks
-  },
+  }
 }
 
 export default {
   namespaced: true,
-  state,
+  state: defaultState,
   getters,
   actions,
   mutations
