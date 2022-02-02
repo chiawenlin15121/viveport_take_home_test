@@ -5,7 +5,8 @@ The park walks through the basic information of the park in Taipei Xinhuayang we
 # Table of Contents
   * [Features](#features)
   * [Build Setup](#build-setup)
-  * [專案設計邏輯](專案設計邏輯)
+  * [專案設計邏輯](#project-structure)
+  * [專案遇到的問題](#problems)
 
 
 ## Features
@@ -29,7 +30,7 @@ npm run serve
 npm run build
 ```
 
-## 專案設計邏輯
+## Project Structure
 ### 1.整體架構
 #### 主要有兩個頁面
     1. DataListPage
@@ -50,9 +51,11 @@ npm run build
 
 >`/parks/:parkId` 公園詳細資料
 
-## 專案遇到的問題
+## Problems
 ### 1.ESLint 版本
 在導入eslint後發現每個檔案開頭都會報錯
 錯誤訊息為`Definition for rule 'vue/script-setup-uses-vars' was not found`
 後來發現是eslint版本7.0.0以上加入了vue3的規則偵測
 在降版後就沒問題了
+
+
