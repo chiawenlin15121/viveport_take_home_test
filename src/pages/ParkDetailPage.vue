@@ -39,8 +39,8 @@ export default {
     }
   },
   beforeMount() {
-    this.notFound = !this.parkId
-    if (this.parkId) {
+    this.notFound = this.parkId === undefined
+    if (!this.notFound) {
       const parkDetail = this.getParkDetail(this.parkId)
       if (!parkDetail) {
         this.notFound = true
