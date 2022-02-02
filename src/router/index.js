@@ -2,10 +2,12 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import DataListPage from '../pages/DataListPage.vue'
 import ParkDetailPage from '../pages/ParkDetailPage.vue'
+import { publicPath } from '../../vue.config'
 
 Vue.use(VueRouter)
 export default new VueRouter({
   mode: 'history',
+  base: publicPath,
   routes: [{
     path: '/parks',
     component: DataListPage,
