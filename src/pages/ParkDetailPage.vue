@@ -1,6 +1,6 @@
 <template lang="pug">
 section
-  .nav.sticky-top.border-bottom.shadow-sm.d-flex.align-items-center.justify-content-between
+  .nav.bg-white.sticky-top.border-bottom.shadow-sm.d-flex.align-items-center.justify-content-between
     .backBtn.btn(@click="goBack") < Back
     h1.flex-grow-1.text-center.overflow-auto.text-nowrap {{ title }}
   .container-fluid.content.py-3
